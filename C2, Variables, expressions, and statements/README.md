@@ -1,4 +1,4 @@
-### Variables, expressions, and statements
+### ⬛ Variables, expressions, and statements
 ### 🔲 Values and types
 A value is one of the basic things a program works with, like a letter or a number. The values we have seen so far are 1, 2, and “Hello, World!”
 
