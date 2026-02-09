@@ -238,19 +238,19 @@ Good variable names can reduce the need for comments, but long names can make co
 
 ### 🔲 Choosing mnemonic variable names
 As long as you follow the simple rules of variable naming, and avoid reserved words, you have a lot of choice when you name your variables. In the beginning, this choice can be confusing both when you read a program and when you write your own programs. For example, the following three programs are identical in terms of what they accomplish, but very different when you read them and try to understand them.
-```
+```Python
 a = 35.0
 b = 12.50
 c = a * b
 print(c)
 ```
-```
+```Python
 hours = 35.0
 rate = 12.50
 pay = hours * rate
 print(pay)
 ```
-```
+```Python
 x1q3z9ahd = 35.0
 x1q3z9afd = 12.50
 x1q3p9afd = x1q3z9ahd * x1q3z9afd
@@ -263,14 +263,14 @@ We call these wisely chosen variable names “mnemonic variable names”. The wo
 While this all sounds great, and it is a very good idea to use mnemonic variable names, mnemonic variable names can get in the way of a beginning programmer’s ability to parse and understand code. This is because beginning programmers have not yet memorized the reserved words (there are only 35 of them) and sometimes variables with names that are too descriptive start to look like part of the language and not just well-chosen variable names.
 
 Take a quick look at the following Python sample code which loops through some data. We will cover loops soon, but for now try to just puzzle through what this means:
-```
+```Python
 for word in words:
     print(word)
 ```
 What is happening here? Which of the tokens (for, word, in, etc.) are reserved words and which are just variable names? Does Python understand at a fundamental level the notion of words? Beginning programmers have trouble separating what parts of the code must be the same as this example and what parts of the code are simply choices made by the programmer.
 
 The following code is equivalent to the above code:
-```
+```Python
 for slice in pizza:
     print(slice)
 ```
@@ -279,7 +279,7 @@ It is easier for the beginning programmer to look at this code and know which pa
 But if our program is truly about reading data and looking for words in the data, pizza and slice are very un-mnemonic variable names. Choosing them as variable names distracts from the meaning of the program.
 
 After a pretty short period of time, you will know the most common reserved words and you will start to see the reserved words jumping out at you:
-```
+```Python
 for word in words:
     print(word)
 ```
