@@ -144,8 +144,67 @@ The modulus operator turns out to be surprisingly useful. For example, you can c
 You can also extract the right-most digit or digits from a number. For example, **`x % 10`** yields the right-most digit of **`x`** (in base 10). Similarly, **`x % 100`** yields the last two digits.
 
 
+### 🔲 String operations
 
+The **`+`** operator works with strings, but it is not addition in the mathematical sense. Instead, it performs concatenation, which means joining the strings by linking them end to end. For example:
+```Python
+>>> first = 10
+>>> second = 15
+>>> print(first+second)
+25
+>>> first = '100'
+>>> second = '150'
+>>> print(first + second)
+100150
+```
+The **`*`** operator also works with strings by multiplying the content of a string by an integer. For example:
+```Python
+>>> first = 'Test '
+>>> second = 3
+>>> print(first * second)
+Test Test Test
+```
 
+### 🔲 Asking the user for input
+Sometimes we would like to take the value for a variable from the user via their keyboard. Python provides a built-in function called input that gets **`input`** from the keyboard1. When this function is called, the program stops and waits for the user to type something. When the user presses **`Return`** or **`Enter`**, the program resumes and **`input`** returns what the user typed as a string.
+```Python
+>>> inp = input()
+Some silly stuff
+>>> print(inp)
+Some silly stuff
+```
+Before getting input from the user, it is a good idea to print a prompt telling the user what to **`input`**. You can pass a string to input to be displayed to the user before pausing for input:
+```Python
+>>> name = input('What is your name?\n')
+What is your name?
+Chuck
+>>> print(name)
+Chuck
+```
+The sequence **`\n`** at the end of the prompt represents a newline, which is a special character that causes a line break. That’s why the user’s input appears below the prompt.
+
+If you expect the user to type an integer, you can try to convert the return value to **`int`** using the **`int()`** function:
+```Python
+>>> prompt = 'What...is the airspeed velocity of an unladen swallow?\n'
+>>> speed = input(prompt)
+What...is the airspeed velocity of an unladen swallow?
+17
+>>> int(speed)
+17
+>>> int(speed) + 5
+22
+```
+But if the user types something other than a string of digits, you get an error:
+
+```Python
+>>> speed = input(prompt)
+What...is the airspeed velocity of an unladen swallow?
+What do you mean, an African or a European swallow?
+>>> int(speed)
+ValueError: invalid literal for int() with
+base 10: 'What do you mean, an African or a European swallow?'
+```
+We will see how to handle this kind of error later.
 
 
 
