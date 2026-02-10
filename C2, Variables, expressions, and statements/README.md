@@ -284,3 +284,31 @@ for word in words:
     print(word)
 ```
 The parts of the code that are defined by Python (for, in, print, and :) are in bold and the programmer-chosen variables (word and words) are not in bold. Many text editors are aware of Python syntax and will color reserved words differently to give you clues to keep your variables and reserved words separate. After a while you will begin to read Python and quickly determine what is a variable and what is a reserved word.
+
+
+### 🔲 Debugging
+At this point, the syntax error you are most likely to make is an illegal variable name, like class and yield, which are keywords, or odd~job and US$, which contain illegal characters.
+
+
+If you put a space in a variable name, Python thinks it is two operands without an operator:
+```Python
+>>> bad name = 5
+SyntaxError: invalid syntax
+```
+For syntax errors, the error messages don’t help much. The most common messages are SyntaxError: invalid syntax which is not very informative.
+
+
+The runtime error you are most likely to make is a “use before def;” that is, trying to use a variable before you have assigned a value. This can happen if you spell a variable name wrong:
+```Python
+>>> principal = 327.68
+>>> interest = principle * rate
+NameError: name 'principle' is not defined
+```
+Variable names are case sensitive, so LaTeX is not the same as latex.
+
+At this point, the most likely cause of a semantic error is the order of operations. For example, to evaluate 1/2π, you might be tempted to write
+
+```Python
+>>> 1.0 / 2.0 * pi
+```
+But the division happens first, so you would get π/2, which is not the same thing! There is no way for Python to know what you meant to write, so in this case you don’t get an error message; you just get the wrong answer.
