@@ -264,7 +264,7 @@ Handling an exception with a try statement is called catching an exception. In t
 
 ### 🔲 Short-circuit evaluation of logical expressions
 
-When Python is processing a logical expression such as `x >= 2 and (x/y) > 2`, it evaluates the expression from left to right. Because of the definition of and, if x is less than 2, the expression x >= 2 is False and so the whole expression is False regardless of whether (x/y) > 2 evaluates to True or False.
+When Python is processing a logical expression such as `x >= 2 and (x/y) > 2`, it evaluates the expression from left to right. Because of the definition of `and`, if `x` is less than 2, the expression `x >= 2` is `False` and so the whole expression is `False` regardless of whether `(x/y) > 2` evaluates to `True` or `False`.
 
 When Python detects that there is nothing to be gained by evaluating the rest of a logical expression, it stops its evaluation and does not do the computations in the rest of the logical expression. When the evaluation of a logical expression stops because the overall value is already known, it is called short-circuiting the evaluation.
 
@@ -288,7 +288,7 @@ ZeroDivisionError: division by zero
 >>>
 ``` 
 
-The third calculation failed because Python was evaluating (x/y) and y was zero, which causes a runtime error. But the first and the second examples did not fail because in the first calculation y was non zero and in the second one the first part of these expressions x >= 2 evaluated to False so the (x/y) was not ever executed due to the short-circuit rule and there was no error.
+The third calculation failed because Python was evaluating `(x/y)` and `y` was zero, which causes a runtime error. But the first and the second examples did not fail because in the first calculation `y` was non zero and in the second one the first part of these expressions `x >= 2` evaluated to False so the `(x/y)` was not ever executed due to the s_hort-circuit_ rule and there was no error.
 
 We can construct the logical expression to strategically place a guard evaluation just before the evaluation that might cause an error as follows:
 ```Python
@@ -306,8 +306,56 @@ Traceback (most recent call last):
 ZeroDivisionError: division by zero
 >>>
 ``` 
-In the first logical expression, x >= 2 is False so the evaluation stops at the and. In the second logical expression, x >= 2 is True but y != 0 is False so we never reach (x/y).
+In the first logical expression, `x >= 2` is `False` so the evaluation stops at the `and`. In the second logical expression, `x >= 2` is `True` but `y != 0` is `False` so we never reach `(x/y)`.
 
-In the third logical expression, the y != 0 is after the (x/y) calculation so the expression fails with an error.
+In the third logical expression, the `y != 0` is after the `(x/y)` calculation, so the expression fails with an error.
 
-In the second expression, we say that y != 0 acts as a guard to ensure that we only execute (x/y) if y is non-zero.
+In the second expression, we say that `y != 0` acts as a guard to ensure that we only execute `(x/y)` if `y` is non-zero.
+
+
+### 🔲Debugging
+
+The traceback Python displays when an error occurs contains a lot of information, but it can be overwhelming. The most useful parts are usually:
+* What kind of error it was, and
+* Where it occurred.
+
+Syntax errors are usually easy to find, but there are a few gotchas. Whitespace errors can be tricky because spaces and tabs are invisible and we are used to ignoring them.
+```Python
+>>> x = 5
+>>>  y = 6
+  File "<stdin>", line 1
+    y = 6
+    ^
+IndentationError: unexpected indent
+```
+In this example, the problem is that the second line is indented by one space. But the error message points to `y`, which is misleading. In general, error messages indicate where the problem was discovered, but the actual error might be earlier in the code, sometimes on a previous line.
+
+In general, error messages tell you where the problem was discovered, but that is often not where it was caused.
+
+### 🔲 Glossary
+#### body
+The sequence of statements within a compound statement.
+#### boolean expression
+An expression whose value is either True or False.
+#### branch
+One of the alternative sequences of statements in a conditional statement.
+#### chained conditional
+A conditional statement with a series of alternative branches.
+#### comparison operator
+One of the operators that compares its operands: ==, !=, >, <, >=, and <=.
+#### conditional statement
+A statement that controls the flow of execution depending on some condition.
+#### condition
+The boolean expression in a conditional statement that determines which branch is executed.
+#### compound statement
+A statement that consists of a header and a body. The header ends with a colon (:). The body is indented relative to the header.
+#### guardian pattern
+Where we construct a logical expression with additional comparisons to take advantage of the short-circuit behavior.
+#### logical operator
+One of the operators that combines boolean expressions: and, or, and not.
+#### nested conditional
+A conditional statement that appears in one of the branches of another conditional statement.
+#### traceback
+A list of the functions that are executing, printed when an exception occurs.
+#### short circuit
+When Python is part-way through evaluating a logical expression and stops the evaluation because Python knows the final value for the expression without needing to evaluate the rest of the expression.
