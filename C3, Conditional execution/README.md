@@ -70,7 +70,38 @@ The boolean expression after the `if` statement is called the condition. We end 
   <br><b><ins><i>if</i> Logic</ins></b>
 </p>
 
+If the logical condition is true, then the indented statement gets executed. If the logical condition is false, the indented statement is skipped.
 
+
+if statements have the same structure as function definitions or for loops1. The statement consists of a header line that ends with the colon character (:) followed by an indented block. Statements like this are called compound statements because they stretch across more than one line.
+
+if x > y:
+    print(x)
+    print(y)
+There is no limit on the number of statements that can appear in the body, but there must be at least one. Occasionally, it is useful to have a body with no statements (usually as a place holder for code you haven’t written yet). In that case, you can use the pass statement to pass the Python interpreter check, which does nothing.
+
+
+if x < 0 :
+    pass   # need to handle negative values, do nothing for now.
+If you enter an if statement in the Python interpreter, the prompt will change from three chevrons (>>>) to three dots (…) to indicate you are in the middle of a block of statements, as shown below:
+
+>>> x = 3
+>>> if x < 10:
+...    print('Small')
+...
+Small
+>>>
+When using the Python interpreter, you must leave a blank line at the end of a block, otherwise Python will return an error:
+
+>>> x = 3
+>>> if x < 10:
+...    print('Small')
+... print('Done')
+  File "<stdin>", line 3
+    print('Done')
+        ^
+SyntaxError: invalid syntax
+A blank line at the end of a block of statements is not necessary when writing and executing a script, but it may improve readability of your code.
 
 
 
