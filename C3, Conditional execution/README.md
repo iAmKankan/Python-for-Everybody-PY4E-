@@ -230,7 +230,7 @@ if 0 < x and x < 10:
 
 ### 🔲 Catching exceptions using try and except
 Earlier we saw a code segment where we used the input and int functions to read and parse an integer number entered by the user. We also saw how treacherous doing this could be:
-
+```Python
 >>> prompt = "What is the air velocity of an unladen swallow?\n"
 >>> speed = input(prompt)
 What is the air velocity of an unladen swallow?
@@ -239,6 +239,7 @@ What do you mean, an African or a European swallow?
 ValueError: invalid literal for int() with
 base 10: 'What do you mean, an African or a European swallow?'
 >>>
+```
 When we are executing these statements in the Python interpreter, we get a new prompt from the interpreter, think “oops”, and move on to our next statement.
 
 However if you place this code in a Python script and this error occurs, your script immediately stops in its tracks with a traceback. It does not execute the following statement.
