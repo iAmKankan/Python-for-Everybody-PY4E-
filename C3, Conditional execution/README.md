@@ -27,6 +27,42 @@ x is not y           # x is not the same as y
 ```
 Although these operations are probably familiar to you, the Python symbols are different from the mathematical symbols for the same operations. A common error is to use a single equal sign (**`=`**) instead of a double equal sign (**`==`**). Remember that **`=`** is an assignment operator and **`==`** is a comparison operator. There is no such thing as **`=<`** or **`=>`**.
 
+>[!NOTE]
+> Difference between `!=` and `is not` :
+> * The `!=` operator compares the value or equality of two objects, whereas the Python `is not` operator checks whether two variables point to the same object in memory. 
+> ```Python
+> a = 10
+> b = 10
+>
+> print(a is not b)
+> print(a != b)
+> print(id(a), id(b))
+> 
+> c = "Python"
+> d = "Python"
+> print(c is not d)
+>print(c != d)
+> print(id(c), id(d))
+>
+> e = [1,2,3,4]
+> f = [1,2,3,4]
+>print(e is not f)
+> print(e != f)
+> print(id(e), id(f))
+>```
+> Output
+>```
+> False
+> False
+> 140178430769512 140178430769512
+> False
+> False
+> 140178430049856 140178430049856
+> True
+> False
+> 140178424465792 140178424467712
+>```
+>
 
 ### 🔲 Logical operators
 
