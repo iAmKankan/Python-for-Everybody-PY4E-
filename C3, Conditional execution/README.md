@@ -229,7 +229,7 @@ if 0 < x and x < 10:
 ```
 
 ### 🔲 Catching exceptions using try and except
-Earlier we saw a code segment where we used the input and int functions to read and parse an integer number entered by the user. We also saw how treacherous doing this could be:
+Earlier we saw a code segment where we used the `input` and `int` functions to read and parse an integer number entered by the user. We also saw how treacherous doing this could be:
 ```Python
 >>> prompt = "What is the air velocity of an unladen swallow?\n"
 >>> speed = input(prompt)
